@@ -1,552 +1,68 @@
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&display=swap');
-  </style>
-  <title>Document</title>
-</head>
-<body>
-  
-
 <!---------------------------SLIDER--------------------------------->
-<div style="margin: 7%;">
-
-  <div id="carouselExample" class="carousel slide pointer-event"
-    style="width: 90%; height: 50%; margin-left: 50px; ">
-    <div class="carousel-inner " >
-      <div class="carousel-item active d-flex row " style="background-color: #F8F9FA;">
-        <div class="col-lg-6"  style="padding: 0px;"><img src="../../assets/images/image1.jpg" class=" d-block w-100"
-            width="600" height="400" alt="Editor`s pick">
-        </div>
-        <div class="col-lg-6 col" style="padding: 50px;">
-          <span class="caption ">Editor's Pick</span>
-          <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
-          <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus
-            adipisci necessitatibus eius, enim vel sit ad reiciendis. Enim praesentium magni delectus cum, tempore
-            deserunt aliquid quaerat culpa nemo veritatis, iste adipisci excepturi consectetur doloribus aliquam
-            accusantium beatae?</p>
-          <div class="post-meta">
-            <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">Food</a></span>
-            <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read <span class="icon-star2"></span></span>
+<div style="margin: 7%">
+  <div
+    id="carouselExample"
+    class="carousel slide pointer-event"
+    style="height: 50%; display: flex; justify-content: center"
+  >
+    <button
+      class="carousel-control-prev"
+      style="justify-content: start"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <div class="carousel-inner" style="width: 85%">
+      <div *ngFor="let carouselItem of carouselItems">
+        <div
+          class="carousel-item"
+          [ngClass]="{ active: carouselItem === carouselItems[0] }"
+          style="background-color: #f8f9fa"
+        >
+          <div class="d-flex row">
+            <div class="col-lg-6 d-block" style="padding: 0px">
+              <img
+                src="{{ carouselItem.urlToImage }}"
+                class="d-block w-100"
+                width="600"
+                height="400"
+                alt="Editor`s pick"
+              />
+            </div>
+            <div class="col-lg-6 col d-block" style="padding: 50px">
+              <span class="caption">Editor's Pick</span>
+              <h2>
+                <a href="blog-single.html">{{ carouselItem.title }}</a>
+              </h2>
+              <p class="mb-3">{{ carouselItem.description }}</p>
+              <div class="post-meta">
+                <span class="d-block"
+                  ><a href="#">{{ carouselItem.author }}</a> in
+                  <a href="#">{{ carouselItem.source.name }}</a></span
+                >
+                <span class="date-read">{{
+                  carouselItem.publishedAt | date : "MMMM dd"
+                }}</span>
+              </div>
+            </div>
           </div>
         </div>
-  
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
-          xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second
-            slide</text>
-        </svg>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
-          xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third
-            slide</text>
-        </svg>
-  
       </div>
     </div>
-  
-    <button class="carousel-control-prev " style="justify-content: start;" type="button" data-bs-target="#carouselExample"
-      data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden ">Previous</span>
-    </button>
-    <button class="carousel-control-next" style="justify-content: end;" type="button" data-bs-target="#carouselExample"
-      data-bs-slide="next">
+
+    <button
+      class="carousel-control-next"
+      style="justify-content: end"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="next"
+    >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  
-  
-  
-  
-  
   </div>
 </div>
 <!---------------------------SLIDER--------------------------------->
-
-
-
-
-<!---------------------------Editor's-Pick-Trending--------------------------------->
-
-<div id="Editor's-Pick-Trending" class="site-section" style=" width: 100%; height: 100%; padding: 10px; ">
-  <div class=" row " style="margin: 5%;">
-    <div class="row section-1 col-md-8">
-      <div class="section-side col-md-8 mt-5">Editor's Pick </div>
-      <div class="col-sm-12 col-lg-6 mt-5 "><img src="../../assets/images/image1.jpg" width="100%" height="100%"
-          class="img-fluid" alt="Editor`s pick">
-        <h2>News Needs to Meet Its Audiences Where They Are</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum
-          quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-      <div class=" row  col-sm-12 col-lg-6 d-grid gap-3 mt-5">
-
-        <div class="row ">
-          <div class="col-4  " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%"
-              height="100%" alt="">
-          </div>
-          <div class="col-8">
-            <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-            <div class="post-meta">
-              <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-              <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-
-          <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%"
-              height="100%" alt="">
-          </div>
-          <div class="col-8">
-            <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-            <div class="post-meta">
-              <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-              <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4" style="padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-              alt="">
-          </div>
-          <div class="col-8">
-            <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-            <div class="post-meta">
-              <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-              <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="section-2 col-sm-12 col-lg-4 d-grid  gap-3 ">
-      <div class="d-block col-md-8 mt-5 section-side">Trending</div>
-      <div class=" d-flex ">
-
-        <div class="number">01</div>
-        <div class="trend-contents">
-          <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-          <div class="">
-            <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-            <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-          </div>
-        </div>
-      </div>
-
-      <div class=" d-flex">
-        <div class="number">02</div>
-        <div class="trend-contents">
-          <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-          <div class="">
-            <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-            <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-          </div>
-        </div>
-      </div>
-
-      <div class=" d-flex">
-        <div class="number">03</div>
-        <div class="trend-contents">
-          <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-          <div class="">
-            <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-            <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-          </div>
-        </div>
-      </div>
-
-      <div class=" d-flex">
-        <div class="number">04</div>
-        <div class="trend-contents">
-          <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-          <div class="">
-            <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-            <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-  </div>
-
-
-</div>
-<!---------------------------Editor's-Pick-Trending--------------------------------->
-
-
-<!---------------------------Editor's-Pick--------------------------------->
-
-
-<div id="carouselExample " class="carousel slide pointer-event"
-  style=" width: 90%; height: 50%; margin: 5%; padding:0px 50px;">
-  <div class="carousel-inner ">
-    <div class="carousel-item active d-flex row " style="background-color: #F8F9FA;">
-      <div class="col-lg-6" style="padding: 0px;"><img src="../../assets/images/image1.jpg" class=" d-block w-100"
-          width="600" height="400" alt="Editor`s pick">
-      </div>
-      <div class="col-lg-6 col" style="padding: 50px;">
-        <span class="caption">Editor's Pick</span>
-        <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus
-          adipisci necessitatibus eius, enim vel sit ad reiciendis. Enim praesentium magni delectus cum, tempore
-          deserunt aliquid quaerat culpa nemo veritatis, iste adipisci excepturi consectetur doloribus aliquam
-          accusantium beatae?</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">Food</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read </span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</div>
-<!---------------------------Editor's-Pick--------------------------------->
-
-
-<!---------------------------Politics-Business--------------------------------->
-
-
-<div id="Politics-Business" class="row" style=" margin: 5%;">
-
-
-  <div class="row col-sm-12 col-lg-6 d-grid gap-3 mt-5">
-    <div class="section-side col-6 mt-5">Politics</div>
-    <div class="row">
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  <div class="row col-sm-12 col-lg-6 d-grid gap-3 mt-5">
-    <div class="section-side col-6 mt-5">Business</div>
-    <div class="row">
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-
-
-
-  </div>
-
-
-
-</div>
-<!---------------------------Politics-Business--------------------------------->
-
-
-
-<!---------------------------Recent_News-Popular_Posts--------------------------------->
-
-
-<div id="Recent_News-Popular_Posts" class="row" style="margin: 5%;">
-
-
-  <div class="row col-sm-12 col-lg-8  gap-3 mt-5 ">
-
-    <div class="section-side col-8 ">Recent News</div>
-
-
-    <div class="row">
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-
-
-
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-
-
-
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-
-
-
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <h6><a href="">News Needs to Meet Its Audiences Where They Are</a></h6>
-        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
-          voluptatum quam quibusdam.</p>
-        <div class="post-meta">
-          <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-
-      <div class="col-4 " style=" padding: 0px;"><img src="../../assets/images/image3.jpg" width="100%" height="100%"
-          alt="">
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class=" row col-sm-12 col-lg-4  gap-3 mt-5">
-    <div class="row">
-      <div class="section-side col-12">Popular Posts</div>
-    </div>
-
-    <div class=" row ">
-
-
-      <div class="col-4 number">01</div>
-      <div class="col-8 trend-contents">
-        <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-        <div class="">
-          <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-
-    <div class=" d-flex">
-      <div class="number">02</div>
-      <div class="trend-contents">
-        <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-        <div class="">
-          <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-
-    <div class=" d-flex">
-      <div class="number">03</div>
-      <div class="trend-contents">
-        <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-        <div class="">
-          <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-
-    <div class=" d-flex">
-      <div class="number">04</div>
-      <div class="trend-contents">
-        <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-        <div class="">
-          <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-    <div class=" d-flex">
-      <div class="number">05</div>
-      <div class="trend-contents">
-        <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-        <div class="">
-          <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-    <div class=" d-flex">
-      <div class="number">06</div>
-      <div class="trend-contents">
-        <h5><a href="">News Needs to Meet Its Audiences Where They Are</a></h5>
-        <div class="">
-          <span class="d-block"><a href="">Dave Rogers</a> in <a href="">News</a></span>
-          <span class="date-read">Jun 14 <span class="mx-1">•</span> 3 min read</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!---------------------------Recent_News-Popular_Posts--------------------------------->
-
-<!---------------------------Subscribe--------------------------------->
-
-<div class="site-section subscribe bg-light centered-text" >
-  <div class="container" style="padding:100px 0px;">
-  <form action="#" class="row align-items-center">
-  <div class="col-md-5 mr-auto">
-  <h2>Newsletter Subcribe</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis aspernatur ut at quae omnis pariatur obcaecati possimus nisi ea iste!</p>
-  </div>
-  <div class="col-md-6 ml-auto">
-  <div class="d-flex">
-  <input type="email"  class="form-control mx-2" placeholder="Enter your email">
-  <button type="submit" style="border-radius: 25px; height: 50px; width: 70px;" class="btn btn-dark  " ><i class="bi bi-send"></i></button>
-  </div>
-  </div>
-  </form>
-  </div>
-  </div>
-<!---------------------------Subscribe--------------------------------->
-
-
-<!---------------------------Footer------------------------------------>
-
-  <div class="footer row" style="padding-left: 65px;">
-    
-    <div class="col-lg-12 col-sm-8 my-5 centered-text ">
-    
-    <p>
-    
-    Copyright ©<script>document.write(new Date().getFullYear());</script>2023 All rights reserved | This template is made with<i class="bi bi-suit-heart-fill"></i> by <a href="https://colorlib.com" target="_blank">
-      <div style="display: inline; color: rgb(37, 147, 37);">
-      colorlib
-      </div></a>
-    
-    </p>
-    </div>
-    </div>
-  
-  
-    <!---------------------------Footer--------------------------------->
-  </body>
-  </html>
