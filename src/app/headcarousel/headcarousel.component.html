@@ -25,7 +25,11 @@
           <div class="d-flex row">
             <div class="col-lg-6 d-block" style="padding: 0px">
               <img
-                src="{{ carouselItem.urlToImage }}"
+                src="{{
+                  carouselItem.urlToImage
+                    ? carouselItem.urlToImage
+                    : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png'
+                }}"
                 class="d-block w-100"
                 width="600"
                 height="400"

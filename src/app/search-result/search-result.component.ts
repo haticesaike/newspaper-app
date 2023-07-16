@@ -3,12 +3,13 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import axios from 'axios';
 
 @Component({
-  selector: 'app-categories-page',
-  templateUrl: './categories-page.component.html',
-  styleUrls: ['./categories-page.component.css']
+  selector: 'app-search-result',
+  templateUrl: './search-result.component.html',
+  styleUrls: ['./search-result.component.css']
 })
-export class CategoriesPageComponent implements OnChanges {
-  id!: string;
+
+export class SearchResultComponent implements OnChanges {
+  q!: string;
   content: any;
   popular: any[] = [];
   categoryContents: any[] = [];
@@ -16,17 +17,18 @@ export class CategoriesPageComponent implements OnChanges {
   constructor(private route: ActivatedRoute) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['id'] ) {
-      this.fetchCategoryContents();
+    if (changes['q']) {
+      this.fetchSearchContents();
     }
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = params.get('id')!;
-      this.fetchContent();
-      this.fetchPopular();
-      this.fetchCategoryContents();
+  this.route.queryParams.subscribe(params => {
+      this.q = params['q'];
+      console.log('Arama sorgusu:', this.q);
+      this.fetchSearchContents();
+      this.fetchContent()
+      this.fetchPopular()
     });
   }
 
@@ -54,13 +56,15 @@ export class CategoriesPageComponent implements OnChanges {
       .catch((err) => console.log('error', err))
   }
 
-  fetchCategoryContents(): void {
+  fetchSearchContents(): void {
     const apiKey = 'ea33ea75299145b6bce22e598b83bdea';
-    const categoryUrl = `https://newsapi.org/v2/top-headlines?country=us&category=${this.id.toLowerCase()}&apiKey=${apiKey}`;
+    const categoryUrl = `https://newsapi.org/v2/everything?q=${this.q.toLowerCase()}&apiKey=${apiKey}`;
 
     axios.get(categoryUrl)
       .then((res) => {
         this.categoryContents = res.data.articles.slice(0, 4);
+        console.log(res.data);
+        
       })
       .catch((err) => console.log('error', err))
   }

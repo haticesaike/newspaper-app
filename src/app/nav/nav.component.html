@@ -14,7 +14,12 @@
           style="margin-left: 10px"
           >Hatice Saike</a
         >
-        <form class="d-flex" role="search" style="gap: 5px">
+        <form
+          class="d-flex"
+          role="search"
+          style="gap: 5px"
+          (submit)="onFormSubmit($event)"
+        >
           <div class="d-flex" style="gap: 30px">
             <button class="social-button">
               <i class="bi bi-instagram"></i>
@@ -28,6 +33,7 @@
           </div>
 
           <input
+            #searchInput
             class="form-control me-2"
             type="search"
             placeholder="Search"

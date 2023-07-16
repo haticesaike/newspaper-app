@@ -10,17 +10,19 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
 import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 @NgModule({
-  declarations: [					
+  declarations: [						
     AppComponent,
     NavComponent,
       HeadcarouselComponent,
       FooterComponent,
       HomeBodyComponent,
       CategoriesPageComponent,
-      MainPageComponent
+      MainPageComponent,
+      SearchResultComponent
    ],
   imports: [
     BrowserModule,
@@ -29,6 +31,9 @@ import { MainPageComponent } from './main-page/main-page.component';
 
   ],
   providers: [],
+  
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}

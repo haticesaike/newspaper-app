@@ -12,7 +12,7 @@ export class HeadcarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    axios('https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&apiKey=676f017549224f488970f1835f9db971')
+    axios('https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&apiKey=ea33ea75299145b6bce22e598b83bdea')
     .then((res)=>{
         this.carouselItems = res.data.articles.slice(-4,-1)
 

@@ -10,95 +10,57 @@
       <div class="section-side col-md-8 mt-5">Editor's Pick</div>
       <div class="col-sm-12 col-lg-6 mt-5">
         <img
-          src="../../assets/images/image1.jpg"
-          width="100%"
-          height="100%"
+          src="{{
+            editorPickFirst.urlToImage
+              ? editorPickFirst.urlToImage
+              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png'
+          }}"
           class="img-fluid"
           alt="Editor`s pick"
         />
-        <h2>News Needs to Meet Its Audiences Where They Are</h2>
+        <h2>{{ editorPickFirst.title }}</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
+          {{ editorPickFirst.description }}
         </p>
         <div class="post-meta">
           <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
+            ><a href="#">{{ editorPickFirst.author }}</a> in
+            <a href="#">{{ editorPickFirst.source.name }}</a></span
           >
           <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
+            >{{ editorPickFirst.publishedAt | date : "MMMM dd"
+            }}<span class="mx-1"></span>
+          </span>
         </div>
       </div>
       <div class="row col-sm-12 col-lg-6 d-grid gap-3 mt-5">
-        <div class="row">
+        <div *ngFor="let item of editorsPicks" class="row">
           <div class="col-4" style="padding: 0px">
             <img
-              src="../../assets/images/image3.jpg"
+              src="{{
+                item.urlToImage
+                  ? item.urlToImage
+                  : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png'
+              }}"
               width="100%"
               height="100%"
               alt=""
+              style="object-fit: cover"
             />
           </div>
           <div class="col-8">
             <h6>
-              <a href="">News Needs to Meet Its Audiences Where They Are</a>
+              <a href="">{{ item.title }}</a>
             </h6>
             <div class="post-meta">
               <span class="d-block"
-                ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
+                ><a href="#">{{ item.author }}</a> in
+                <a href="#">{{ item.source.name }}</a></span
               >
               <span class="date-read"
-                >Jun 14 <span class="mx-1">•</span> 3 min read</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4" style="padding: 0px">
-            <img
-              src="../../assets/images/image3.jpg"
-              width="100%"
-              height="100%"
-              alt=""
-            />
-          </div>
-          <div class="col-8">
-            <h6>
-              <a href="">News Needs to Meet Its Audiences Where They Are</a>
-            </h6>
-            <div class="post-meta">
-              <span class="d-block"
-                ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-              >
-              <span class="date-read"
-                >Jun 14 <span class="mx-1">•</span> 3 min read</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4" style="padding: 0px">
-            <img
-              src="../../assets/images/image3.jpg"
-              width="100%"
-              height="100%"
-              alt=""
-            />
-          </div>
-          <div class="col-8">
-            <h6>
-              <a href="">News Needs to Meet Its Audiences Where They Are</a>
-            </h6>
-            <div class="post-meta">
-              <span class="d-block"
-                ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-              >
-              <span class="date-read"
-                >Jun 14 <span class="mx-1">•</span> 3 min read</span
-              >
+                >{{ item.publishedAt | date : "MMMM dd" }}
+                <span class="mx-1"></span
+              ></span>
             </div>
           </div>
         </div>
@@ -107,70 +69,21 @@
 
     <div class="section-2 col-sm-12 col-lg-4 d-grid gap-3">
       <div class="d-block col-md-8 mt-5 section-side">Trending</div>
-      <div class="d-flex">
-        <div class="number">01</div>
+      <div *ngFor="let item of trends" class="d-flex">
+        <div class="number">0{{ trends.indexOf(item) + 1 }}</div>
         <div class="trend-contents">
           <h5>
-            <a href="">News Needs to Meet Its Audiences Where They Are</a>
+            <a href="">{{ item.title }}</a>
           </h5>
           <div class="">
             <span class="d-block"
-              ><a href="">Dave Rogers</a> in <a href="">News</a></span
+              ><a href="">{{ item.author }}</a> in
+              <a href="">{{ item.source.name }}</a></span
             >
             <span class="date-read"
-              >Jun 14 <span class="mx-1">•</span> 3 min read</span
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="d-flex">
-        <div class="number">02</div>
-        <div class="trend-contents">
-          <h5>
-            <a href="">News Needs to Meet Its Audiences Where They Are</a>
-          </h5>
-          <div class="">
-            <span class="d-block"
-              ><a href="">Dave Rogers</a> in <a href="">News</a></span
-            >
-            <span class="date-read"
-              >Jun 14 <span class="mx-1">•</span> 3 min read</span
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="d-flex">
-        <div class="number">03</div>
-        <div class="trend-contents">
-          <h5>
-            <a href="">News Needs to Meet Its Audiences Where They Are</a>
-          </h5>
-          <div class="">
-            <span class="d-block"
-              ><a href="">Dave Rogers</a> in <a href="">News</a></span
-            >
-            <span class="date-read"
-              >Jun 14 <span class="mx-1">•</span> 3 min read</span
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="d-flex">
-        <div class="number">04</div>
-        <div class="trend-contents">
-          <h5>
-            <a href="">News Needs to Meet Its Audiences Where They Are</a>
-          </h5>
-          <div class="">
-            <span class="d-block"
-              ><a href="">Dave Rogers</a> in <a href="">News</a></span
-            >
-            <span class="date-read"
-              >Jun 14 <span class="mx-1">•</span> 3 min read</span
-            >
+              >{{ item.publishedAt | date : "MMMM dd" }}
+              <span class="mx-1"></span>
+            </span>
           </div>
         </div>
       </div>
@@ -193,7 +106,11 @@
     >
       <div class="col-lg-6" style="padding: 0px">
         <img
-          src="../../assets/images/image1.jpg"
+          src="{{
+            editorPick.urlToImage
+              ? editorPick.urlToImage
+              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png'
+          }}"
           class="d-block w-100"
           width="600"
           height="400"
@@ -203,23 +120,19 @@
       <div class="col-lg-6 col" style="padding: 50px">
         <span class="caption">Editor's Pick</span>
         <h2>
-          <a href="blog-single.html"
-            >News Needs to Meet Its Audiences Where They Are</a
-          >
+          <a href="blog-single.html">{{ editorPick.title }}</a>
         </h2>
         <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate
-          vero obcaecati natus adipisci necessitatibus eius, enim vel sit ad
-          reiciendis. Enim praesentium magni delectus cum, tempore deserunt
-          aliquid quaerat culpa nemo veritatis, iste adipisci excepturi
-          consectetur doloribus aliquam accusantium beatae?
+          {{ editorPick.description }}
         </p>
         <div class="post-meta">
           <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">Food</a></span
+            ><a href="#">{{ editorPick.author }}</a> in
+            <a href="#">{{ editorPick.source.name }}</a></span
           >
           <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read
+            >{{ editorPick.publishedAt | date : "MMMM dd" }}
+            <span class="mx-1"></span>
           </span>
         </div>
       </div>
@@ -232,11 +145,15 @@
 
 <div id="Politics-Business" class="row" style="margin: 5%">
   <div class="row col-sm-12 col-lg-6 d-grid gap-3 mt-5">
-    <div class="section-side col-6 mt-5">Politics</div>
-    <div class="row">
+    <div class="section-side col-6 mt-5">Sports</div>
+    <div *ngFor="let item of sports" class="row">
       <div class="col-4" style="padding: 0px">
         <img
-          src="../../assets/images/image3.jpg"
+          src="{{
+            item.urlToImage
+              ? item.urlToImage
+              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png'
+          }}"
           width="100%"
           height="100%"
           alt=""
@@ -244,75 +161,20 @@
       </div>
       <div class="col-8">
         <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
+          <a href="">{{ item.title }}</a>
         </h6>
         <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
+          {{ item.description }}
         </p>
 
         <div class="post-meta">
           <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
+            ><a href="#">{{ item.author }}</a> in
+            <a href="#">{{ item.source.name }}</a></span
           >
           <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4" style="padding: 0px">
-        <img
-          src="../../assets/images/image3.jpg"
-          width="100%"
-          height="100%"
-          alt=""
-        />
-      </div>
-      <div class="col-8">
-        <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h6>
-        <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
-        </p>
-
-        <div class="post-meta">
-          <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4" style="padding: 0px">
-        <img
-          src="../../assets/images/image3.jpg"
-          width="100%"
-          height="100%"
-          alt=""
-        />
-      </div>
-      <div class="col-8">
-        <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h6>
-        <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
-        </p>
-        <div class="post-meta">
-          <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
+            >{{ item.publishedAt | date : "MMMM dd" }} <span class="mx-1"></span
+          ></span>
         </div>
       </div>
     </div>
@@ -320,10 +182,14 @@
 
   <div class="row col-sm-12 col-lg-6 d-grid gap-3 mt-5">
     <div class="section-side col-6 mt-5">Business</div>
-    <div class="row">
+    <div *ngFor="let item of business" class="row">
       <div class="col-4" style="padding: 0px">
         <img
-          src="../../assets/images/image3.jpg"
+          src="{{
+            item.urlToImage
+              ? item.urlToImage
+              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png'
+          }}"
           width="100%"
           height="100%"
           alt=""
@@ -331,73 +197,19 @@
       </div>
       <div class="col-8">
         <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
+          <a href="">{{ item.title }}</a>
         </h6>
         <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
+          {{ item.description }}
         </p>
         <div class="post-meta">
           <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
+            ><a href="#">{{ item.author }}</a> in
+            <a href="#">{{ item.source.name }}</a></span
           >
           <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4" style="padding: 0px">
-        <img
-          src="../../assets/images/image3.jpg"
-          width="100%"
-          height="100%"
-          alt=""
-        />
-      </div>
-      <div class="col-8">
-        <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h6>
-        <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
-        </p>
-        <div class="post-meta">
-          <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4" style="padding: 0px">
-        <img
-          src="../../assets/images/image3.jpg"
-          width="100%"
-          height="100%"
-          alt=""
-        />
-      </div>
-      <div class="col-8">
-        <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h6>
-        <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
-        </p>
-        <div class="post-meta">
-          <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
+            >{{ item.publishedAt | date : "MMMM dd" }} <span class="mx-1"></span
+          ></span>
         </div>
       </div>
     </div>
@@ -411,112 +223,32 @@
   <div class="row col-sm-12 col-lg-8 gap-3 mt-5">
     <div class="section-side col-8">Recent News</div>
 
-    <div class="row">
+    <div *ngFor="let item of recent" class="row">
       <div class="col-8">
         <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
+          <a href="">{{ item.title }}</a>
         </h6>
         <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
+          {{ item.description }}
         </p>
         <div class="post-meta">
           <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
+            ><a href="#">{{ item.author }}</a> in
+            <a href="#">{{ item.source.name }}</a></span
           >
           <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
+            >{{ item.publishedAt | date : "MMMM dd" }} <span class="mx-1"></span
+          ></span>
         </div>
       </div>
 
       <div class="col-4" style="padding: 0px">
         <img
-          src="../../assets/images/image3.jpg"
-          width="100%"
-          height="100%"
-          alt=""
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h6>
-        <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
-        </p>
-        <div class="post-meta">
-          <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-
-      <div class="col-4" style="padding: 0px">
-        <img
-          src="../../assets/images/image3.jpg"
-          width="100%"
-          height="100%"
-          alt=""
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h6>
-        <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
-        </p>
-        <div class="post-meta">
-          <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-
-      <div class="col-4" style="padding: 0px">
-        <img
-          src="../../assets/images/image3.jpg"
-          width="100%"
-          height="100%"
-          alt=""
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <h6>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h6>
-        <p class="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          temporibus praesentium neque, voluptatum quam quibusdam.
-        </p>
-        <div class="post-meta">
-          <span class="d-block"
-            ><a href="#">Dave Rogers</a> in <a href="#">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-
-      <div class="col-4" style="padding: 0px">
-        <img
-          src="../../assets/images/image3.jpg"
+          src="{{
+            item.urlToImage
+              ? item.urlToImage
+              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png'
+          }}"
           width="100%"
           height="100%"
           alt=""
@@ -530,102 +262,20 @@
       <div class="section-side col-12">Popular Posts</div>
     </div>
 
-    <div class="row">
-      <div class="col-4 number">01</div>
+    <div *ngFor="let item of popular" class="d-flex">
+      <div class="col-4 number">0{{ popular.indexOf(item) + 1 }}</div>
       <div class="col-8 trend-contents">
         <h5>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
+          <a href="">{{ item.title }}</a>
         </h5>
         <div class="">
           <span class="d-block"
-            ><a href="">Dave Rogers</a> in <a href="">News</a></span
+            ><a href="">{{ item.author }}</a> in
+            <a href="">{{ item.source.name }}</a></span
           >
           <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex">
-      <div class="number">02</div>
-      <div class="trend-contents">
-        <h5>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h5>
-        <div class="">
-          <span class="d-block"
-            ><a href="">Dave Rogers</a> in <a href="">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex">
-      <div class="number">03</div>
-      <div class="trend-contents">
-        <h5>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h5>
-        <div class="">
-          <span class="d-block"
-            ><a href="">Dave Rogers</a> in <a href="">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex">
-      <div class="number">04</div>
-      <div class="trend-contents">
-        <h5>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h5>
-        <div class="">
-          <span class="d-block"
-            ><a href="">Dave Rogers</a> in <a href="">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-    <div class="d-flex">
-      <div class="number">05</div>
-      <div class="trend-contents">
-        <h5>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h5>
-        <div class="">
-          <span class="d-block"
-            ><a href="">Dave Rogers</a> in <a href="">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
-        </div>
-      </div>
-    </div>
-    <div class="d-flex">
-      <div class="number">06</div>
-      <div class="trend-contents">
-        <h5>
-          <a href="">News Needs to Meet Its Audiences Where They Are</a>
-        </h5>
-        <div class="">
-          <span class="d-block"
-            ><a href="">Dave Rogers</a> in <a href="">News</a></span
-          >
-          <span class="date-read"
-            >Jun 14 <span class="mx-1">•</span> 3 min read</span
-          >
+            >{{ item.publishedAt | date : "MMMM dd" }}<span class="mx-1"></span
+          ></span>
         </div>
       </div>
     </div>
