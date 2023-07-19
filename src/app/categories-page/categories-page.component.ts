@@ -31,7 +31,7 @@ export class CategoriesPageComponent implements OnChanges {
   }
 
   fetchContent(): void {
-    const apiKey = 'ea33ea75299145b6bce22e598b83bdea';
+    const apiKey = '7ed7bc61f3034ba9b6369af3f2793e69';
     const contentUrl = `https://newsapi.org/v2/top-headlines?country=us&sortBy=categories&apiKey=${apiKey}`;
 
     axios.get(contentUrl)
