@@ -11,10 +11,11 @@ import { HomeBodyComponent } from './home-body/home-body.component';
 import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
-  declarations: [						
+  declarations: [							
     AppComponent,
     NavComponent,
       HeadcarouselComponent,
@@ -22,7 +23,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
       HomeBodyComponent,
       CategoriesPageComponent,
       MainPageComponent,
-      SearchResultComponent
+      SearchResultComponent,
+      AboutComponent
    ],
   imports: [
     BrowserModule,

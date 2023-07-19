@@ -1,0 +1,128 @@
+.full-screen-div {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  margin: -3px;
+  margin-top: -32px;
+}
+
+.top-side {
+  background-color: #f6e6e0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-side-content {
+  background-color: #f6e6e0;
+  margin: 0px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 20px;
+  font-family: "Cinzel", serif;
+  gap: 5%;
+}
+
+.image-side {
+  border-radius: 50%;
+  width: 150px;
+  height: 180px;
+  object-fit: cover;
+
+  border: 5px solid rgba(106, 52, 52, 0.66);
+  padding: 6px;
+}
+
+.text-side {
+  white-space: initial;
+  margin-right: 20px;
+}
+
+.bottom-side {
+  flex: 1;
+  background-color: #eeb4aa;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.resume {
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  font-family: "Faustina", serif;
+  color: antiquewhite;
+  background-color: rgba(105, 49, 49, 0.411);
+  font-size: 25px;
+  width: 60%;
+  padding: 10px 10px;
+}
+.resume:hover {
+  letter-spacing: 2px;
+  opacity: 0.5;
+  transition: all 300ms ease-out;
+}
+.icon:hover {
+  letter-spacing: 0.5px;
+  opacity: 0.5;
+  transition: all 300ms ease-out;
+}
+.social-top {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.icon {
+  font-size: 60px;
+  color: #f6e6e0;
+  margin-left: 30px;
+  display: block;
+}
+.horizontal-line {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  margin-top: 40px;
+}
+
+.skills {
+  color: rgb(241, 237, 230);
+  font-family: "Catamaran", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+}
+.toolbox {
+  color: #787373;
+  font-family: "Crimson Text", serif;
+  font-size: 25px;
+  font-weight: 00;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+p {
+  font-family: "Mada", sans-serif;
+  margin-left: 1.8rem;
+  margin-top: 10px;
+  color: #787373;
+}
