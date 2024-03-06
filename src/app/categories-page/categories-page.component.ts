@@ -31,7 +31,7 @@ export class CategoriesPageComponent implements OnChanges {
   }
 
   fetchContent(): void {
-    const apiKey = '7ed7bc61f3034ba9b6369af3f2793e69';
+    const apiKey = '032c2431de03411281da01585fe0a53a';
     const contentUrl = `https://newsapi.org/v2/top-headlines?country=us&sortBy=categories&apiKey=${apiKey}`;
 
     axios.get(contentUrl)
@@ -40,9 +40,9 @@ export class CategoriesPageComponent implements OnChanges {
         console.log(this.content)
       })
       .catch((err) => console.log('error', err))
-      
+
     }
-    
+
     fetchPopular(): void {
     const apiKey = 'ea33ea75299145b6bce22e598b83bdea';
     const popularUrl = `https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&apiKey=${apiKey}`;
